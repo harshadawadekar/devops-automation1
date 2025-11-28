@@ -14,7 +14,7 @@ pipeline {
         stage('Build docker image'){
             steps{
                 script{
-                    sh 'docker build -t harshada/kubernetes .'
+                   sh 'docker build -t suresh394/kubernetes .'
                 }
             }
         }
@@ -22,10 +22,10 @@ pipeline {
             steps{
                 script{
                     withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
-                    sh 'docker login -u harshada -p ${dockerhubpwd}'
+                    sh 'docker login -u suresh394 -p ${dockerhubpwd}'
                         
                     }
-                    sh 'docker push harshada/kubernetes'
+                    sh 'docker push suresh394/kubernetes'
                 }
             }
         }
@@ -39,4 +39,5 @@ pipeline {
     
     }    
 }
+
 
